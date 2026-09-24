@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetConnects | Pet Adoption System</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<nav class="navbar">
+<div class="logo">
+        🐾 Pet<span>Connects</span>
+</div>
+<ul class="nav-links">
+<li>
+<a href="#home">Home</a>
+</li>
+<li>
+<a href="#pets">Available Pets</a>
+</li>
+<li>
+<a href="#process">Adoption Process</a>
+</li>
+<li>
+<a href="#contact">Contact</a>
+</li>
+</ul>
+</nav>
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Find Your Perfect Companion 🐾</h1>
+<p>
+            Give a loving animal a forever home.
+            Browse our available pets and begin your
+            responsible adoption journey today.
+        </p>
+<button class="hero-btn" onclick="document.getElementById('pets').scrollIntoView()">
+
+            Explore Available Pets
+
+        </button>
+</div>
+</section>
+<!-- =========================================================
+     STATISTICS
+========================================================= -->
+<section class="statistics">
+<div class="stat-box">
+<h2>250+</h2>
+<p>Pets Rehomed</p>
+</div>
+<div class="stat-box">
+<h2>75+</h2>
+<p>Pets Available</p>
+</div>
+<div class="stat-box">
+<h2>40+</h2>
+<p>Partner Shelters</p>
+</div>
+<div class="stat-box">
+<h2>100%</h2>
+<p>Love &amp; Care</p>
+</div>
+</section>
+<!-- =========================================================
+     PET SECTION
+========================================================= -->
+<section class="section" id="pets">
+<div class="section-title">
+<h2>Available Pets</h2>
+<p>
+            Search and filter pets based on species,
+            breed and gender.
+        </p>
+</div>
+<!-- SEARCH AND FILTER -->
+<div class="filters">
+<input id="searchInput" onkeyup="filterPets()" placeholder="🔍 Search by pet name or breed..." type="text"/>
+<select id="speciesFilter" onchange="filterPets()">
+<option value="all">
+                All Species
+            </option>
+<option value="dog">
+                🐶 Dogs
+            </option>
+<option value="cat">
+                🐱 Cats
+            </option>
+<option value="bird">
+                🦜 Birds
+            </option>
+<option value="fish">
+                🐠 Fish
+            </option>
+<option value="rabbit">
+                🐰 Rabbits
+            </option>
+<option value="hamster">
+                🐹 Hamsters
+            </option>
+<option value="turtle">
+                🐢 Turtles
+            </option>
+</select>
+<select id="genderFilter" onchange="filterPets()">
+<option value="all">
+                All Genders
+            </option>
+<option value="male">
+                Male
+            </option>
+<option value="female">
+                Female
+            </option>
+</select>
+<select id="sortFilter" onchange="sortPets()">
+<option value="default">
+                Sort By
+            </option>
+<option value="low">
+                Adoption Fee: Low to High
+            </option>
+<option value="high">
+                Adoption Fee: High to Low
+            </option>
+</select>
+<button class="reset-filter-btn" onclick="resetFilters()" type="button">
+            ↺ Reset
+        </button>
+</div>
+<!-- CATEGORY FILTER -->
+<div class="categories">
+<button class="category-btn active" onclick="categoryFilter('all', this)">
+            🐾 All
+        </button>
+<button class="category-btn" onclick="categoryFilter('dog', this)">
+            🐶 Dogs
+        </button>
+<button class="category-btn" onclick="categoryFilter('cat', this)">
+            🐱 Cats
+        </button>
+<button class="category-btn" onclick="categoryFilter('bird', this)">
+            🦜 Birds
+        </button>
+<button class="category-btn" onclick="categoryFilter('fish', this)">
+            🐠 Fish
+        </button>
+<button class="category-btn" onclick="categoryFilter('rabbit', this)">
+            🐰 Rabbits
+        </button>
+<button class="category-btn" onclick="categoryFilter('hamster', this)">
+            🐹 Hamsters
+        </button>
+<button class="category-btn" onclick="categoryFilter('turtle', this)">
+            🐢 Turtles
+        </button>
+</div>
+<!-- PET GRID -->
+<div class="pet-grid" id="petGrid">
+<!-- =========================================================
+     DOG 1 - SAINT BERNARD
+========================================================= -->
+<div class="pet-card" data-breed="St. Bernard" data-fee="25000" data-gender="male" data-image-fallback="St Bernard Dog.jpg" data-name="Bruno" data-species="dog">
+<div class="pet-image">
+<img alt="St. Bernard - Bruno" data-breed="St. Bernard" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/St_Bernard_Dog.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/St_Bernard_Dog.jpg/960px-St_Bernard_Dog.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Bruno')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Bruno ♂</h3>
+<p><strong>Breed:</strong> St. Bernard</p>
+<p><strong>Age:</strong> 3 Years</p>
+<p class="pet-location">
+            📍 Hyderabad
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹25,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Bruno',
+            'St. Bernard',
+            '3 Years',
+            'Male',
+            'Hyderabad',
+            '₹25,000',
+            'Gentle, affectionate and protective companion.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Bruno')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 2 - GERMAN SHEPHERD
+========================================================= -->
+<div class="pet-card" data-breed="German Shepherd" data-fee="18000" data-gender="male" data-image-fallback="German Shepherd Dog.jpg" data-name="Max" data-species="dog">
+<div class="pet-image">
+<img alt="German Shepherd - Max" data-breed="German Shepherd" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/German_Shepherd_Dog.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/German_Shepherd_Dog.jpg/960px-German_Shepherd_Dog.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Max')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Max ♂</h3>
+<p><strong>Breed:</strong> German Shepherd</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Bengaluru
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹18,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Max',
+            'German Shepherd',
+            '2 Years',
+            'Male',
+            'Bengaluru',
+            '₹18,000',
+            'Intelligent, loyal and energetic companion.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Max')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 3 - GOLDEN RETRIEVER
+========================================================= -->
+<div class="pet-card" data-breed="Golden Retriever" data-fee="22000" data-gender="male" data-image-fallback="Golden Retriever Dog.jpg" data-name="Buddy" data-species="dog">
+<div class="pet-image">
+<img alt="Golden Retriever - Buddy" data-breed="Golden Retriever" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Golden-retriever-dog.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Golden-retriever-dog.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Buddy')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Buddy ♂</h3>
+<p><strong>Breed:</strong> Golden Retriever</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Vijayawada
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹22,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Buddy',
+            'Golden Retriever',
+            '2 Years',
+            'Male',
+            'Vijayawada',
+            '₹22,000',
+            'Friendly, gentle and excellent with families.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Buddy')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 4 - LABRADOR
+========================================================= -->
+<div class="pet-card" data-breed="Labrador Retriever" data-fee="16000" data-gender="female" data-image-fallback="Labrador Retriever Dog.jpg" data-name="Daisy" data-species="dog">
+<div class="pet-image">
+<img alt="Labrador Retriever - Daisy" data-breed="Labrador Retriever" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Labrador_Retriever_Dog.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Labrador_Retriever_Dog.jpg/960px-Labrador_Retriever_Dog.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Daisy')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Daisy ♀</h3>
+<p><strong>Breed:</strong> Labrador Retriever</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Chennai
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹16,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Daisy',
+            'Labrador Retriever',
+            '1 Year',
+            'Female',
+            'Chennai',
+            '₹16,000',
+            'Playful, social and family-friendly.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Daisy')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 5 - SIBERIAN HUSKY
+========================================================= -->
+<div class="pet-card" data-breed="Siberian Husky" data-fee="28000" data-gender="male" data-image-fallback="Siberian Husky .jpg" data-name="Storm" data-species="dog">
+<div class="pet-image">
+<img alt="Siberian Husky - Storm" data-breed="Siberian Husky" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Siberian_Husky_.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Siberian_Husky_.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Storm')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Storm ♂</h3>
+<p><strong>Breed:</strong> Siberian Husky</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Delhi
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹28,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Storm',
+            'Siberian Husky',
+            '2 Years',
+            'Male',
+            'Delhi',
+            '₹28,000',
+            'Energetic and adventurous companion.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Storm')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 6 - POODLE
+========================================================= -->
+<div class="pet-card" data-breed="Standard Poodle" data-fee="20000" data-gender="female" data-image-fallback="Poodle.jpg" data-name="Coco" data-species="dog">
+<div class="pet-image">
+<img alt="Standard Poodle - Coco" data-breed="Standard Poodle" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Poodle.jpg" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Poodle.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Coco')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Coco ♀</h3>
+<p><strong>Breed:</strong> Standard Poodle</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Mumbai
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹20,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Coco',
+            'Standard Poodle',
+            '2 Years',
+            'Female',
+            'Mumbai',
+            '₹20,000',
+            'Smart, affectionate and easy to train.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Coco')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     DOG 7 - BEAGLE
+========================================================= -->
+<div class="pet-card" data-breed="Beagle" data-fee="14000" data-gender="male" data-image-fallback="Beagle at the dog park.jpg" data-name="Rocky" data-species="dog">
+<div class="pet-image">
+<img alt="Beagle - Rocky" data-breed="Beagle" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Beagle_at_the_dog_park.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Rocky')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐶 Dog
+        </span>
+</div>
+<div class="pet-info">
+<h3>Rocky ♂</h3>
+<p><strong>Breed:</strong> Beagle</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Vijayawada
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹14,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Rocky',
+            'Beagle',
+            '1 Year',
+            'Male',
+            'Vijayawada',
+            '₹14,000',
+            'Curious, cheerful and playful.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Rocky')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     CAT - PERSIAN
+========================================================= -->
+<div class="pet-card" data-breed="Persian Cat" data-fee="12000" data-gender="female" data-image-fallback="Persian Cats.jpg" data-name="Luna" data-species="cat">
+<div class="pet-image">
+<img alt="Persian Cat - Luna" data-breed="Persian Cat" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Persian_Cats.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Luna')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐱 Cat
+        </span>
+</div>
+<div class="pet-info">
+<h3>Luna ♀</h3>
+<p><strong>Breed:</strong> Persian Cat</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Hyderabad
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹12,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Luna',
+            'Persian Cat',
+            '1 Year',
+            'Female',
+            'Hyderabad',
+            '₹12,000',
+            'Calm, affectionate and gentle companion.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Luna')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     CAT - SIAMESE
+========================================================= -->
+<div class="pet-card" data-breed="Siamese Cat" data-fee="10000" data-gender="male" data-image-fallback="Siamese cat.jpg" data-name="Milo" data-species="cat">
+<div class="pet-image">
+<img alt="Siamese Cat - Milo" data-breed="Siamese Cat" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Siamese_cat.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Milo')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐱 Cat
+        </span>
+</div>
+<div class="pet-info">
+<h3>Milo ♂</h3>
+<p><strong>Breed:</strong> Siamese Cat</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Chennai
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹10,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Milo',
+            'Siamese Cat',
+            '2 Years',
+            'Male',
+            'Chennai',
+            '₹10,000',
+            'Social, intelligent and affectionate.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Milo')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     CAT - MAINE COON
+========================================================= -->
+<div class="pet-card" data-breed="Maine Coon" data-fee="18000" data-gender="male" data-image-fallback="Maine coon cat.jpg" data-name="Simba" data-species="cat">
+<div class="pet-image">
+<img alt="Maine Coon - Simba" data-breed="Maine Coon" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Maine_coon_cat.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Simba')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐱 Cat
+        </span>
+</div>
+<div class="pet-info">
+<h3>Simba ♂</h3>
+<p><strong>Breed:</strong> Maine Coon</p>
+<p><strong>Age:</strong> 2 Years</p>
+<p class="pet-location">
+            📍 Mumbai
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹18,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Simba',
+            'Maine Coon',
+            '2 Years',
+            'Male',
+            'Mumbai',
+            '₹18,000',
+            'Large, gentle and friendly cat.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Simba')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     PARROT
+========================================================= -->
+<div class="pet-card" data-breed="Rose-ringed Parakeet (Indian Ringneck)" data-fee="6000" data-gender="male" data-image-fallback="Rose ringed Parakeet . Parrot.jpg" data-name="Mithu" data-species="bird">
+<div class="pet-image">
+<img alt="Rose-ringed Parakeet (Indian Ringneck) - Mithu" data-breed="Rose-ringed Parakeet (Indian Ringneck)" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rose_ringed_Parakeet_._Parrot.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Mithu')">
+            ♡
+        </button>
+<span class="pet-category">
+            🦜 Bird
+        </span>
+</div>
+<div class="pet-info">
+<h3>Mithu ♂</h3>
+<p><strong>Species:</strong> Rose-ringed Parakeet (Indian Ringneck)</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Vijayawada
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹6,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Mithu',
+            'Rose-ringed Parakeet (Indian Ringneck)',
+            '1 Year',
+            'Male',
+            'Vijayawada',
+            '₹6,000',
+            'Social and intelligent companion bird.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Mithu')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     COCKATIEL
+========================================================= -->
+<div class="pet-card" data-breed="Cockatiel" data-fee="5000" data-gender="female" data-image-fallback="Cockatiel.jpg" data-name="Sunny" data-species="bird">
+<div class="pet-image">
+<img alt="Cockatiel - Sunny" data-breed="Cockatiel" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Cockatiel.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Sunny')">
+            ♡
+        </button>
+<span class="pet-category">
+            🦜 Bird
+        </span>
+</div>
+<div class="pet-info">
+<h3>Sunny ♀</h3>
+<p><strong>Breed:</strong> Cockatiel</p>
+<p><strong>Age:</strong> 10 Months</p>
+<p class="pet-location">
+            📍 Bengaluru
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹5,000
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Sunny',
+            'Cockatiel',
+            '10 Months',
+            'Female',
+            'Bengaluru',
+            '₹5,000',
+            'Cheerful, friendly and affectionate bird.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Sunny')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     FISH - CLOWNFISH
+========================================================= -->
+<div class="pet-card" data-breed="Ocellaris Clownfish" data-fee="2500" data-gender="male" data-image-fallback="Amphiprion ocellaris.jpg" data-name="Nemo" data-species="fish">
+<div class="pet-image">
+<img alt="Ocellaris Clownfish - Nemo" data-breed="Ocellaris Clownfish" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Amphiprion_ocellaris.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Nemo')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐠 Fish
+        </span>
+</div>
+<div class="pet-info">
+<h3>Nemo ♂</h3>
+<p><strong>Species:</strong> Ocellaris Clownfish</p>
+<p><strong>Age:</strong> 8 Months</p>
+<p class="pet-location">
+            📍 Bengaluru
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹2,500
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Nemo',
+            'Ocellaris Clownfish',
+            '8 Months',
+            'Male',
+            'Bengaluru',
+            '₹2,500',
+            'Colorful aquarium fish requiring proper aquatic care.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Nemo')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     FISH - GOLDFISH
+========================================================= -->
+<div class="pet-card" data-breed="Goldfish" data-fee="1500" data-gender="female" data-image-fallback="Goldfish.jpg" data-name="Goldie" data-species="fish">
+<div class="pet-image">
+<img alt="Goldfish - Goldie" data-breed="Goldfish" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Goldfish.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Goldie')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐠 Fish
+        </span>
+</div>
+<div class="pet-info">
+<h3>Goldie ♀</h3>
+<p><strong>Species:</strong> Goldfish</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Kochi
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹1,500
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Goldie',
+            'Goldfish',
+            '1 Year',
+            'Female',
+            'Kochi',
+            '₹1,500',
+            'Peaceful aquarium companion requiring suitable tank care.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Goldie')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     RABBIT
+========================================================= -->
+<div class="pet-card" data-breed="Holland Lop Rabbit" data-fee="4500" data-gender="female" data-image-fallback="Holland lop rabbit.jpg" data-name="Bella" data-species="rabbit">
+<div class="pet-image">
+<img alt="Holland Lop Rabbit - Bella" data-breed="Holland Lop Rabbit" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Holland_lop_rabbit.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Bella')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐰 Rabbit
+        </span>
+</div>
+<div class="pet-info">
+<h3>Bella ♀</h3>
+<p><strong>Breed:</strong> Holland Lop Rabbit</p>
+<p><strong>Age:</strong> 1 Year</p>
+<p class="pet-location">
+            📍 Mumbai
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹4,500
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Bella',
+            'Holland Lop Rabbit',
+            '1 Year',
+            'Female',
+            'Mumbai',
+            '₹4,500',
+            'Gentle and friendly rabbit requiring spacious housing.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Bella')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     HAMSTER
+========================================================= -->
+<div class="pet-card" data-breed="Syrian Hamster" data-fee="2500" data-gender="female" data-image-fallback="Syrian hamster.jpg" data-name="Coco" data-species="hamster">
+<div class="pet-image">
+<img alt="Syrian Hamster - Coco" data-breed="Syrian Hamster" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Syrian_hamster.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Coco')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐹 Hamster
+        </span>
+</div>
+<div class="pet-info">
+<h3>Coco ♀</h3>
+<p><strong>Breed:</strong> Syrian Hamster</p>
+<p><strong>Age:</strong> 6 Months</p>
+<p class="pet-location">
+            📍 Pune
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹2,500
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Coco',
+            'Syrian Hamster',
+            '6 Months',
+            'Female',
+            'Pune',
+            '₹2,500',
+            'Small, active and adorable companion.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Coco')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     TURTLE
+========================================================= -->
+<div class="pet-card" data-breed="Red-Eared Slider" data-fee="3500" data-gender="female" data-image-fallback="Trachemys scripta elegans MSB.jpg" data-name="Shelly" data-species="turtle">
+<div class="pet-image">
+<img alt="Red-Eared Slider - Shelly" data-breed="Red-Eared Slider" data-image-source="breed-specific" decoding="async" loading="eager" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Trachemys_scripta_elegans_MSB.jpg"/>
+<button aria-label="Add to favorites" aria-pressed="false" class="favorite" onclick="favoritePet(event, 'Shelly')">
+            ♡
+        </button>
+<span class="pet-category">
+            🐢 Turtle
+        </span>
+</div>
+<div class="pet-info">
+<h3>Shelly ♀</h3>
+<p><strong>Species:</strong> Red-Eared Slider</p>
+<p><strong>Age:</strong> 3 Years</p>
+<p class="pet-location">
+            📍 Kochi
+        </p>
+<p class="adoption-fee">
+            Adoption Fee: ₹3,500
+        </p>
+<span class="status">
+            Available for Adoption
+        </span>
+<div class="card-buttons">
+<button class="details-btn" onclick="showDetails(
+            'Shelly',
+            'Red-Eared Slider',
+            '3 Years',
+            'Female',
+            'Kochi',
+            '₹3,500',
+            'Quiet aquatic pet requiring specialized habitat care.'
+            )">
+                View Details
+            </button>
+<button class="adopt-btn" onclick="openAdoptionForm('Shelly')">
+                Apply to Adopt
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     ADOPTION PROCESS
+========================================================= -->
+<section class="info-section" id="process">
+<div class="section-title">
+<h2>How Pet Adoption Works</h2>
+<p>
+            Our simple and responsible adoption process
+        </p>
+</div>
+<div class="info-grid">
+<div class="info-card">
+<div class="icon">🔎</div>
+<h3>1. Find a Pet</h3>
+<p>
+                Browse available pets and select a
+                companion that matches your lifestyle.
+            </p>
+</div>
+<div class="info-card">
+<div class="icon">📝</div>
+<h3>2. Submit Application</h3>
+<p>
+                Complete the adoption application with
+                your contact and living information.
+            </p>
+</div>
+<div class="info-card">
+<div class="icon">❤️</div>
+<h3>3. Adoption Review</h3>
+<p>
+                Our adoption team reviews your application
+                and contacts you for the next steps.
+            </p>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     DETAILS MODAL
+========================================================= -->
+<div class="modal" id="detailsModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('detailsModal')">
+            ×
+        </span>
+<h2 id="detailsName">
+            Pet Details
+        </h2>
+<p id="detailsContent"></p>
+</div>
+</div>
+<!-- =========================================================
+     ADOPTION APPLICATION MODAL
+========================================================= -->
+<div class="modal" id="adoptionModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('adoptionModal')">
+            ×
+        </span>
+<h2>Adoption Application</h2>
+<p>
+            Applying to adopt:
+            <strong id="selectedPet"></strong>
+</p>
+<form onsubmit="submitApplication(event)">
+<input id="applicantName" placeholder="Full Name" required="" type="text"/>
+<input id="applicantEmail" placeholder="Email Address" required="" type="email"/>
+<input id="applicantPhone" placeholder="Phone Number" required="" type="tel"/>
+<input id="applicantCity" placeholder="City" required="" type="text"/>
+<select id="housingType" required="">
+<option value="">
+                    Select Housing Type
+                </option>
+<option>
+                    Independent House
+                </option>
+<option>
+                    Apartment
+                </option>
+<option>
+                    Farm / Large Property
+                </option>
+</select>
+<textarea id="reason" placeholder="Why would you like to adopt this pet?" required="" rows="4"></textarea>
+<p class="form-note">
+                Your application is a demo submission for this project. No payment is processed.
+            </p>
+<button class="submit-btn" type="submit">
+
+                Submit Adoption Application
+
+            </button>
+</form>
+</div>
+</div>
+<!-- =========================================================
+     CONFIRMATION PAGE
+========================================================= -->
+<div class="confirmation" id="confirmationPage">
+<div class="confirmation-box">
+<div class="success-icon">
+            🎉🐾
+        </div>
+<h1>
+            Thank You for Choosing Adoption!
+        </h1>
+<p>
+            Your adoption application has been
+            successfully submitted.
+        </p>
+<div class="confirmation-details">
+<p>
+<strong>Pet:</strong>
+<span id="confirmedPet"></span>
+</p>
+<p>
+<strong>Applicant:</strong>
+<span id="confirmedApplicant"></span>
+</p>
+<p>
+<strong>Application Status:</strong>
+                Under Review
+            </p>
+</div>
+<p>
+            Thank you for giving a deserving animal
+            the opportunity to have a loving forever home.
+            Our adoption team will contact you after
+            reviewing your application.
+        </p>
+<button class="home-btn" onclick="returnHome()">
+
+            Return to PetHaven
+
+        </button>
+</div>
+</div>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer id="contact">
+<div class="footer-grid">
+<div class="footer-column">
+<h3>🐾 PetHaven</h3>
+<p>
+                PetHaven is a pet adoption platform
+                designed to connect animals in need
+                with responsible and loving families.
+            </p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li>Home</li>
+<li>Available Pets</li>
+<li>Adoption Process</li>
+<li>About Us</li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Pet Categories</h3>
+<ul>
+<li>Dogs</li>
+<li>Cats</li>
+<li>Birds</li>
+<li>Fish</li>
+<li>Small Animals</li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact Us</h3>
+<ul>
+<li>📧 support@pethaven.com</li>
+<li>📞 +91 98765 43210</li>
+<li>📍 India</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+
+        ©️ 2026 PetHaven. All Rights Reserved.
+        <br/>
+        Built with ❤️ for animals.
+        <br/>
+<small>Breed-specific photos are loaded from Dog CEO and Wikimedia Commons.</small>
+</div>
+</footer>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script defer="" src="script.js"></script>
+</body>
+</html>
