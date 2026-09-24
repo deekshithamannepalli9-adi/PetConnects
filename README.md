@@ -1,4 +1,4 @@
-# PetHaven — Corrected VS Code Project
+# PetConnects Project
 
 This version fixes the breed-image problems in the previous project.
 
